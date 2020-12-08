@@ -3,7 +3,7 @@ using System;
 
 namespace SharpMik.Interfaces
 {
-    public abstract class IModDriver
+    public abstract class IModDriver : IDisposable
     {
         #region protected variables
         protected IModDriver m_Next;
@@ -91,6 +91,8 @@ namespace SharpMik.Interfaces
         public abstract bool VoiceStopped(byte voice);
         public abstract int VoiceGetPosition(byte voice);
         public abstract uint VoiceRealVolume(byte voice);
+
+        public abstract void Dispose();
         #endregion
     }
 }

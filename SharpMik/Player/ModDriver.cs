@@ -12,7 +12,7 @@ namespace SharpMik.Player
 	 * Also strangly contains the MikMod_* functions that do alot of setting up.
 	 * 
 	 */
-    public class ModDriver
+    public class ModDriver : IDisposable
     {
         #region private (static) variables
         private static IModDriver m_Driver;
@@ -613,6 +613,14 @@ namespace SharpMik.Player
             if (wasplaying)
                 m_Driver.PlayStart();
             return false;
+        }
+
+        public void Dispose()
+        {
+            if (m_Driver!=null)
+            {
+                m_Driver.Dispose();
+            }
         }
 
         #endregion

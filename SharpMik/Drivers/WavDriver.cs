@@ -5,7 +5,7 @@ using System.IO;
 
 namespace SharpMik.Drivers
 {
-    public class WavDriver : VirtualSoftwareDriver
+    public class WavDriver : VirtualSoftwareDriver, IDisposable
     {
         readonly WavDriverOptions m_DriverOptions = new WavDriverOptions();
 
@@ -120,6 +120,14 @@ namespace SharpMik.Drivers
             m_FileStream.Write((ushort)((ModDriver.Mode & SharpMikCommon.DMODE_16BITS) == SharpMikCommon.DMODE_16BITS ? 16 : 8));
             m_FileStream.Write("data".ToCharArray());
             m_FileStream.Write((uint)dumpsize);
+        }
+
+        public override void Dispose()
+        {
+            if (m_FileStream!=null)
+            {
+                m_FileStream.Dispose();
+            }
         }
 
         public class WavDriverOptions

@@ -15,7 +15,7 @@ namespace SharpMik.Drivers
             int channels = (ModDriver.Mode & SharpMikCommon.DMODE_STEREO) == SharpMikCommon.DMODE_STEREO ? 2 : 1;
 
             waveFormat = new WaveFormat(ModDriver.MixFrequency, bitness, channels);
-
+            
             m_Driver = driver;
         }
 
@@ -41,9 +41,9 @@ namespace SharpMik.Drivers
         }
     }
 
-    public class NaudioDriverAdvanced : VirtualSoftwareDriver
+    public class NaudioDriverAdvanced : VirtualSoftwareDriver, IDisposable
     {
-        private NaudioDriverAdvacedOptions naudioDriverAdvacedOptions = new NaudioDriverAdvacedOptions();
+        private readonly NaudioDriverAdvacedOptions naudioDriverAdvacedOptions = new NaudioDriverAdvacedOptions();
         WaveOut waveOut;
         NAudioAdvancedTrackerStream m_NAudioStream;
         bool stopped = false;
@@ -163,6 +163,15 @@ namespace SharpMik.Drivers
         {
             waveOut.Play();
         }
+
+        public override void Dispose()
+        {
+            if (waveOut!=null)
+            {
+                waveOut.Dispose();
+            }
+        }
+
         public class NaudioDriverAdvacedOptions
         {
             public virtual int OutputDevice { get; set; } = 0;

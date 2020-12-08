@@ -4,7 +4,7 @@ using System.IO;
 
 namespace SharpMik.Player
 {
-    public class MikMod
+    public class MikMod : IDisposable
     {
         String m_Error;
         String m_CommandLine;
@@ -52,17 +52,17 @@ namespace SharpMik.Player
             return 0.0f;
         }
 
+        private object loaded_Driver;
+
         public bool Init<T>(Drivers.NaudioDriverAdvanced.NaudioDriverAdvacedOptions naudioDriverOptions) where T : IModDriver, new()
         {
-            ModDriver.LoadDriver<T>(naudioDriverOptions);
-
+            loaded_Driver = ModDriver.LoadDriver<T>(naudioDriverOptions);
             return ModDriver.MikMod_Init("");
         }
 
         public bool Init<T>(Drivers.WavDriver.WavDriverOptions wavDriverOptions) where T : IModDriver, new()
         {
-            ModDriver.LoadDriver<T>(wavDriverOptions);
-
+            loaded_Driver = ModDriver.LoadDriver<T>(wavDriverOptions);
             return ModDriver.MikMod_Init("");
         }
 
@@ -253,6 +253,14 @@ namespace SharpMik.Player
             if (ModDriver.Driver != null && !ModDriver.Driver.AutoUpdating)
             {
                 ModDriver.MikMod_Update();
+            }
+        }
+
+        public void Dispose()
+        {
+            if (loaded_Driver!=null)
+            {
+                ((Drivers.VirtualSoftwareDriver)loaded_Driver).Dispose();
             }
         }
     }
