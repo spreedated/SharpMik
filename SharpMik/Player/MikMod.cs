@@ -52,6 +52,13 @@ namespace SharpMik.Player
             return 0.0f;
         }
 
+        public bool Init<T>(Drivers.NaudioDriverAdvanced.NaudioDriverAdvacedOptions naudioDriverOptions) where T : IModDriver, new()
+        {
+            ModDriver.LoadDriver<T>(naudioDriverOptions);
+
+            return ModDriver.MikMod_Init("");
+        }
+
         public bool Init<T>(Drivers.WavDriver.WavDriverOptions wavDriverOptions) where T : IModDriver, new()
         {
             ModDriver.LoadDriver<T>(wavDriverOptions);

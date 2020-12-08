@@ -123,6 +123,11 @@ namespace SharpMik.Player
             m_Driver = new Drivers.WavDriver(wavDriverOptions);
             return (T)m_Driver;
         }
+        public static T LoadDriver<T>(Drivers.NaudioDriverAdvanced.NaudioDriverAdvacedOptions naudioDriverOptions) where T : IModDriver, new()
+        {
+            m_Driver = new Drivers.NaudioDriverAdvanced(naudioDriverOptions);
+            return (T)m_Driver;
+        }
 
 
         internal static short MD_SampleLoad(SAMPLOAD s, int type)

@@ -1,6 +1,7 @@
 ﻿using NAudio.Wave;
 using SharpMik.Player;
 using System;
+using System.Collections.Generic;
 
 namespace SharpMik.Drivers
 {
@@ -42,12 +43,13 @@ namespace SharpMik.Drivers
 
     public class NaudioDriverAdvanced : VirtualSoftwareDriver
     {
+        private NaudioDriverAdvacedOptions naudioDriverAdvacedOptions = new NaudioDriverAdvacedOptions();
         WaveOut waveOut;
         NAudioAdvancedTrackerStream m_NAudioStream;
         bool stopped = false;
         readonly Object mutext = new Object();
 
-        public NaudioDriverAdvanced()
+        private void InitCon()
         {
             m_Next = null;
             m_Name = "NAudio Driver Advanced";
@@ -57,6 +59,15 @@ namespace SharpMik.Drivers
             m_AutoUpdating = true;
         }
 
+        public NaudioDriverAdvanced()
+        {
+            InitCon();
+        }
+        public NaudioDriverAdvanced(NaudioDriverAdvacedOptions options)
+        {
+            InitCon();
+            naudioDriverAdvacedOptions = options;
+        }
 
         public override void CommandLine(string command)
         {
@@ -109,9 +120,11 @@ namespace SharpMik.Drivers
             {
                 if (waveOut == null)
                 {
-                    waveOut = new WaveOut();
-                    waveOut.DesiredLatency = 250;
-                    waveOut.DeviceNumber = 0;
+                    waveOut = new WaveOut
+                    {
+                        DesiredLatency = 250,
+                        DeviceNumber = naudioDriverAdvacedOptions.OutputDevice
+                    };
                     m_NAudioStream = new NAudioAdvancedTrackerStream(this);
                     waveOut.Init(m_NAudioStream);
                 }
@@ -149,6 +162,21 @@ namespace SharpMik.Drivers
         public override void Resume()
         {
             waveOut.Play();
+        }
+        public class NaudioDriverAdvacedOptions
+        {
+            public virtual int OutputDevice { get; set; } = 0;
+            public static Dictionary<int, string> GetOutputDevices()
+            {
+                Dictionary<int, string> devices = new Dictionary<int, string>();
+
+                for (int i = 0; i < WaveOut.DeviceCount -1; i++)
+                {
+                    devices.Add(i,WaveOut.GetCapabilities(i).ProductName);
+                }
+
+                return devices;
+            }
         }
     }
 }
