@@ -31,7 +31,7 @@ namespace SharpMik.Drivers
 			ConstructorInit();
 		}
 
-		public WavDriver(DriverOptions driverOptions)
+		public WavDriver(Options driverOptions)
 		{
 			ConstructorInit();
 			this.m_DriverOptions = driverOptions as WavDriverOptions;

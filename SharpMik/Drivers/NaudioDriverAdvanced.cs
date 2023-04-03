@@ -63,7 +63,7 @@ namespace SharpMik.Drivers
 		{
 			InitCon();
 		}
-		public NaudioDriverAdvanced(DriverOptions options)
+		public NaudioDriverAdvanced(Options options)
 		{
 			InitCon();
 			naudioDriverAdvacedOptions = options as NaudioDriverAdvacedOptions;

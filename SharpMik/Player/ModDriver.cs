@@ -1,5 +1,5 @@
-﻿using SharpMik.Interfaces;
-using System;
+﻿using System;
+using SharpMik.Interfaces;
 
 namespace SharpMik.Player
 {
@@ -12,7 +12,7 @@ namespace SharpMik.Player
 	 * Also strangly contains the MikMod_* functions that do alot of setting up.
 	 *
 	 */
-	public class ModDriver : IDisposable
+	public partial class ModDriver : IDisposable
 	{
 		#region private (static) variables
 		private static IModDriver m_Driver;
@@ -117,18 +117,6 @@ namespace SharpMik.Player
 			m_Driver = new T();
 			return (T)m_Driver;
 		}
-
-		public static T LoadDriver<T>(Drivers.WavDriver.WavDriverOptions wavDriverOptions) where T : IModDriver, new()
-		{
-			m_Driver = new Drivers.WavDriver(wavDriverOptions);
-			return (T)m_Driver;
-		}
-		public static T LoadDriver<T>(Drivers.NaudioDriverAdvanced.NaudioDriverAdvacedOptions naudioDriverOptions) where T : IModDriver, new()
-		{
-			m_Driver = new Drivers.NaudioDriverAdvanced(naudioDriverOptions);
-			return (T)m_Driver;
-		}
-
 
 		internal static short MD_SampleLoad(SAMPLOAD s, int type)
 		{

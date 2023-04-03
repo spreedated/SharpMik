@@ -1,10 +1,10 @@
-﻿using SharpMik.Interfaces;
-using System;
+﻿using System;
 using System.IO;
+using SharpMik.Interfaces;
 
 namespace SharpMik.Player
 {
-	public class MikMod : IDisposable
+	public partial class MikMod : IDisposable
 	{
 		String m_Error;
 		String m_CommandLine;
@@ -53,18 +53,6 @@ namespace SharpMik.Player
 		}
 
 		private object loaded_Driver;
-
-		public bool Init<T>(Drivers.NaudioDriverAdvanced.NaudioDriverAdvacedOptions naudioDriverOptions) where T : IModDriver, new()
-		{
-			loaded_Driver = ModDriver.LoadDriver<T>(naudioDriverOptions);
-			return ModDriver.MikMod_Init("");
-		}
-
-		public bool Init<T>(Drivers.WavDriver.WavDriverOptions wavDriverOptions) where T : IModDriver, new()
-		{
-			loaded_Driver = ModDriver.LoadDriver<T>(wavDriverOptions);
-			return ModDriver.MikMod_Init("");
-		}
 
 		public bool Init<T>() where T : IModDriver, new()
 		{

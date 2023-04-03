@@ -84,6 +84,10 @@
     <Compile Include="SoftwareMixers\HQSoftwareMixer.cs" />
     <Compile Include="SoftwareMixers\LQSoftwareMixer.cs" />
     <Compile Include="Drivers\DriverOptions.cs" />
+    <Compile Include="Player\ModDriver.Wav.cs" />
+    <Compile Include="Player\ModDriver.Naudio.cs" />
+    <Compile Include="Player\MikMod.Wav.cs" />
+    <Compile Include="Player\MikMod.Naudio.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
