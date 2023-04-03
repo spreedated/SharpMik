@@ -63,10 +63,10 @@ namespace SharpMik.Drivers
 		{
 			InitCon();
 		}
-		public NaudioDriverAdvanced(NaudioDriverAdvacedOptions options)
+		public NaudioDriverAdvanced(DriverOptions options)
 		{
 			InitCon();
-			naudioDriverAdvacedOptions = options;
+			naudioDriverAdvacedOptions = options as NaudioDriverAdvacedOptions;
 		}
 
 		public override void CommandLine(string command)
@@ -172,7 +172,7 @@ namespace SharpMik.Drivers
 			}
 		}
 
-		public class NaudioDriverAdvacedOptions
+		public class NaudioDriverAdvacedOptions : Options
 		{
 			public virtual int OutputDevice { get; set; } = 0;
 			public static Dictionary<int, string> GetOutputDevices()

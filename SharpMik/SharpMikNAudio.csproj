@@ -83,6 +83,7 @@
     <Compile Include="SoftwareMixers\CommonSoftwareMixer.cs" />
     <Compile Include="SoftwareMixers\HQSoftwareMixer.cs" />
     <Compile Include="SoftwareMixers\LQSoftwareMixer.cs" />
+    <Compile Include="Drivers\DriverOptions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

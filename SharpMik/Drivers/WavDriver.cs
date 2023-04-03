@@ -31,10 +31,10 @@ namespace SharpMik.Drivers
 			ConstructorInit();
 		}
 
-		public WavDriver(WavDriverOptions wavDriverOptions)
+		public WavDriver(DriverOptions driverOptions)
 		{
 			ConstructorInit();
-			this.m_DriverOptions = wavDriverOptions;
+			this.m_DriverOptions = driverOptions as WavDriverOptions;
 		}
 
 		public override void CommandLine(string command)
@@ -130,7 +130,7 @@ namespace SharpMik.Drivers
 			}
 		}
 
-		public class WavDriverOptions
+		public class WavDriverOptions : Options
 		{
 			public string OutputFilename { get; set; } = "music.wav";
 			public bool Overwrite { get; set; }
