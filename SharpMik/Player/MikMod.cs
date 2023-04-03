@@ -200,8 +200,9 @@ namespace SharpMik.Player
 
 		public void TogglePause()
 		{
-			ModPlayer.Player_Paused();
+			ModPlayer.Player_TogglePause();
 		}
+
 
 		public void SetPosition(int position)
 		{

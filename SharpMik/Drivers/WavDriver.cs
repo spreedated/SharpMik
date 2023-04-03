@@ -81,7 +81,7 @@ namespace SharpMik.Drivers
 				base.Exit();
 				//putheader();
 				m_FileStream.Close();
-				m_FileStream.Dispose();
+				(m_FileStream as IDisposable).Dispose();
 				m_FileStream = null;
 			}
 			catch (System.Exception ex)
@@ -126,7 +126,7 @@ namespace SharpMik.Drivers
 		{
 			if (m_FileStream!=null)
 			{
-				m_FileStream.Dispose();
+				(m_FileStream as IDisposable).Dispose();
 			}
 		}
 
