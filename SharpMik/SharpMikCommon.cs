@@ -635,10 +635,9 @@ namespace SharpMik
 
 
 
+		public const int MAXSAMPLEHANDLES = 128;
 
-
-
-		public const int Octave = 12;
+        public const int Octave = 12;
 
 
 		public const int UF_MAXMACRO = 0x10;

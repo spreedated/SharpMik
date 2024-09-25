@@ -415,14 +415,14 @@ namespace SharpMik.Drivers
 
 			m_Rvc = new int[8];
 
-			m_Rvc[0] = (5000 * ModDriver.MixFreq) / REVERBERATION;
-			m_Rvc[1] = (5078 * ModDriver.MixFreq) / REVERBERATION;
-			m_Rvc[2] = (5313 * ModDriver.MixFreq) / REVERBERATION;
-			m_Rvc[3] = (5703 * ModDriver.MixFreq) / REVERBERATION;
-			m_Rvc[4] = (6250 * ModDriver.MixFreq) / REVERBERATION;
-			m_Rvc[5] = (6953 * ModDriver.MixFreq) / REVERBERATION;
-			m_Rvc[6] = (7813 * ModDriver.MixFreq) / REVERBERATION;
-			m_Rvc[7] = (8828 * ModDriver.MixFreq) / REVERBERATION;
+			m_Rvc[0] = (5000 * ModDriver.MixFrequency) / REVERBERATION;
+			m_Rvc[1] = (5078 * ModDriver.MixFrequency) / REVERBERATION;
+			m_Rvc[2] = (5313 * ModDriver.MixFrequency) / REVERBERATION;
+			m_Rvc[3] = (5703 * ModDriver.MixFrequency) / REVERBERATION;
+			m_Rvc[4] = (6250 * ModDriver.MixFrequency) / REVERBERATION;
+			m_Rvc[5] = (6953 * ModDriver.MixFrequency) / REVERBERATION;
+			m_Rvc[6] = (7813 * ModDriver.MixFrequency) / REVERBERATION;
+			m_Rvc[7] = (8828 * ModDriver.MixFrequency) / REVERBERATION;
 
 
 			m_RvBuf = new int[2][][];
@@ -456,7 +456,7 @@ namespace SharpMik.Drivers
 		{
 			int t;
 
-			if ((m_VcSoftChannel = ModDriver.SoftChn) == 0)
+			if ((m_VcSoftChannel = ModDriver.SoftwareChannel) == 0)
 			{
 				return true;
 			}
@@ -955,7 +955,7 @@ namespace SharpMik.Drivers
 						ModPlayer.Player_HandleTick();
 					}
 
-					m_TickLeft = (ModDriver.MixFreq * 125) / (ModDriver.Bpm * 50);
+					m_TickLeft = (ModDriver.MixFrequency * 125) / (ModDriver.Bpm * 50);
 				}
 
 				left = (int)Math.Min(m_TickLeft, todo);
@@ -990,7 +990,7 @@ namespace SharpMik.Drivers
 
 						if (m_CurrentVoiceInfo.Active != 0)
 						{
-							m_CurrentVoiceInfo.CurrentIncrement = ((long)(m_CurrentVoiceInfo.Frequency << FRACBITS)) / ModDriver.MixFreq;
+							m_CurrentVoiceInfo.CurrentIncrement = ((long)(m_CurrentVoiceInfo.Frequency << FRACBITS)) / ModDriver.MixFrequency;
 
 							if ((m_CurrentVoiceInfo.Flags & SharpMikCommon.SF_REVERSE) != 0)
 							{

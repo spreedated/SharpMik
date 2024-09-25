@@ -7,7 +7,7 @@ namespace SharpMik.Player
 {
 	public partial class ModEffects : ModPlayer
 	{
-		delegate int effectDelegate(ushort tick, ushort flags, MP_CONTROL a, MODULE mod, short channel);
+		delegate int effectDelegate(ushort tick, ushort flags, MP_CONTROL a, Module mod, short channel);
 
 		static effectDelegate effect_func = DoNothing;
 
@@ -79,7 +79,7 @@ namespace SharpMik.Player
 			}
 		}
 
-		static int DoPTEffect0(ushort tick, ushort flags, MP_CONTROL a, MODULE mod, short channel)
+		static int DoPTEffect0(ushort tick, ushort flags, MP_CONTROL a, Module mod, short channel)
 		{
 			byte dat;
 
@@ -97,7 +97,7 @@ namespace SharpMik.Player
 			return 0;
 		}
 
-		static int DoPTEffect1(ushort tick, ushort flags, MP_CONTROL a, MODULE mod, short channel)
+		static int DoPTEffect1(ushort tick, ushort flags, MP_CONTROL a, Module mod, short channel)
 		{
 			byte dat;
 
@@ -111,7 +111,7 @@ namespace SharpMik.Player
 			return 0;
 		}
 
-		static int DoPTEffect2(ushort tick, ushort flags, MP_CONTROL a, MODULE mod, short channel)
+		static int DoPTEffect2(ushort tick, ushort flags, MP_CONTROL a, Module mod, short channel)
 		{
 			byte dat;
 
@@ -160,7 +160,7 @@ namespace SharpMik.Player
 			a.ownper = 1;
 		}
 
-		static int DoPTEffect3(ushort tick, ushort flags, MP_CONTROL a, MODULE mod, short channel)
+		static int DoPTEffect3(ushort tick, ushort flags, MP_CONTROL a, Module mod, short channel)
 		{
 			byte dat;
 
@@ -214,7 +214,7 @@ namespace SharpMik.Player
 				a.vibpos += (sbyte)a.vibspd;
 		}
 
-		static int DoPTEffect4(ushort tick, ushort flags, MP_CONTROL a, MODULE mod, short channel)
+		static int DoPTEffect4(ushort tick, ushort flags, MP_CONTROL a, Module mod, short channel)
 		{
 			byte dat;
 
@@ -246,7 +246,7 @@ namespace SharpMik.Player
 			}
 		}
 
-		static int DoPTEffect5(ushort tick, ushort flags, MP_CONTROL a, MODULE mod, short channel)
+		static int DoPTEffect5(ushort tick, ushort flags, MP_CONTROL a, Module mod, short channel)
 		{
 			byte dat;
 
@@ -262,7 +262,7 @@ namespace SharpMik.Player
 
 		/* DoPTEffect6 after DoPTEffectA */
 
-		static int DoPTEffect7(ushort tick, ushort flags, MP_CONTROL a, MODULE mod, short channel)
+		static int DoPTEffect7(ushort tick, ushort flags, MP_CONTROL a, Module mod, short channel)
 		{
 			byte dat;
 			byte q;
@@ -319,7 +319,7 @@ namespace SharpMik.Player
 			return 0;
 		}
 
-		static int DoPTEffect8(ushort tick, ushort flags, MP_CONTROL a, MODULE mod, short channel)
+		static int DoPTEffect8(ushort tick, ushort flags, MP_CONTROL a, Module mod, short channel)
 		{
 			byte dat;
 
@@ -333,7 +333,7 @@ namespace SharpMik.Player
 			return 0;
 		}
 
-		static int DoPTEffect9(ushort tick, ushort flags, MP_CONTROL a, MODULE mod, short channel)
+		static int DoPTEffect9(ushort tick, ushort flags, MP_CONTROL a, Module mod, short channel)
 		{
 			byte dat;
 
@@ -361,7 +361,7 @@ namespace SharpMik.Player
 			return 0;
 		}
 
-		static int DoPTEffectA(ushort tick, ushort flags, MP_CONTROL a, MODULE mod, short channel)
+		static int DoPTEffectA(ushort tick, ushort flags, MP_CONTROL a, Module mod, short channel)
 		{
 			byte dat;
 
@@ -372,7 +372,7 @@ namespace SharpMik.Player
 			return 0;
 		}
 
-		static int DoPTEffect6(ushort tick, ushort flags, MP_CONTROL a, MODULE mod, short channel)
+		static int DoPTEffect6(ushort tick, ushort flags, MP_CONTROL a, Module mod, short channel)
 		{
 			if (a.main.period != 0)
 				DoVibrato(tick, a);
@@ -381,7 +381,7 @@ namespace SharpMik.Player
 			return 0;
 		}
 
-		static int DoPTEffectB(ushort tick, ushort flags, MP_CONTROL a, MODULE mod, short channel)
+		static int DoPTEffectB(ushort tick, ushort flags, MP_CONTROL a, Module mod, short channel)
 		{
 			byte dat;
 
@@ -418,7 +418,7 @@ namespace SharpMik.Player
 			return 0;
 		}
 
-		static int DoPTEffectC(ushort tick, ushort flags, MP_CONTROL a, MODULE mod, short channel)
+		static int DoPTEffectC(ushort tick, ushort flags, MP_CONTROL a, Module mod, short channel)
 		{
 			byte dat;
 
@@ -437,7 +437,7 @@ namespace SharpMik.Player
 			return 0;
 		}
 
-		static int DoPTEffectD(ushort tick, ushort flags, MP_CONTROL a, MODULE mod, short channel)
+		static int DoPTEffectD(ushort tick, ushort flags, MP_CONTROL a, Module mod, short channel)
 		{
 			byte dat;
 
@@ -467,7 +467,7 @@ namespace SharpMik.Player
 			return 0;
 		}
 
-		static void DoEEffects(ushort tick, ushort flags, MP_CONTROL a, MODULE mod,
+		static void DoEEffects(ushort tick, ushort flags, MP_CONTROL a, Module mod,
 			short channel, byte dat)
 		{
 			byte nib = (byte)(dat & 0xf);
@@ -606,14 +606,14 @@ namespace SharpMik.Player
 			}
 		}
 
-		static int DoPTEffectE(ushort tick, ushort flags, MP_CONTROL a, MODULE mod, short channel)
+		static int DoPTEffectE(ushort tick, ushort flags, MP_CONTROL a, Module mod, short channel)
 		{
 			DoEEffects(tick, flags, a, mod, channel, s_UniTrack.UniGetByte());
 
 			return 0;
 		}
 
-		static int DoPTEffectF(ushort tick, ushort flags, MP_CONTROL a, MODULE mod, short channel)
+		static int DoPTEffectF(ushort tick, ushort flags, MP_CONTROL a, Module mod, short channel)
 		{
 			byte dat;
 
@@ -635,7 +635,7 @@ namespace SharpMik.Player
 
 		/*========== Scream Tracker effects */
 
-		static int DoS3MEffectA(ushort tick, ushort flags, MP_CONTROL a, MODULE mod, short channel)
+		static int DoS3MEffectA(ushort tick, ushort flags, MP_CONTROL a, Module mod, short channel)
 		{
 			byte speed;
 
@@ -695,7 +695,7 @@ namespace SharpMik.Player
 				a.tmpvolume = 64;
 		}
 
-		static int DoS3MEffectD(ushort tick, ushort flags, MP_CONTROL a, MODULE mod, short channel)
+		static int DoS3MEffectD(ushort tick, ushort flags, MP_CONTROL a, Module mod, short channel)
 		{
 			DoS3MVolSlide(tick, flags, a, s_UniTrack.UniGetByte());
 
@@ -729,7 +729,7 @@ namespace SharpMik.Player
 				}
 		}
 
-		static int DoS3MEffectE(ushort tick, ushort flags, MP_CONTROL a, MODULE mod, short channel)
+		static int DoS3MEffectE(ushort tick, ushort flags, MP_CONTROL a, Module mod, short channel)
 		{
 			byte dat;
 
@@ -765,7 +765,7 @@ namespace SharpMik.Player
 				}
 		}
 
-		static int DoS3MEffectF(ushort tick, ushort flags, MP_CONTROL a, MODULE mod, short channel)
+		static int DoS3MEffectF(ushort tick, ushort flags, MP_CONTROL a, Module mod, short channel)
 		{
 			byte dat;
 
@@ -776,7 +776,7 @@ namespace SharpMik.Player
 			return 0;
 		}
 
-		static int DoS3MEffectI(ushort tick, ushort flags, MP_CONTROL a, MODULE mod, short channel)
+		static int DoS3MEffectI(ushort tick, ushort flags, MP_CONTROL a, Module mod, short channel)
 		{
 			byte inf, on, off;
 
@@ -803,7 +803,7 @@ namespace SharpMik.Player
 			return 0;
 		}
 
-		static int DoS3MEffectQ(ushort tick, ushort flags, MP_CONTROL a, MODULE mod, short channel)
+		static int DoS3MEffectQ(ushort tick, ushort flags, MP_CONTROL a, Module mod, short channel)
 		{
 			byte inf;
 
@@ -870,7 +870,7 @@ namespace SharpMik.Player
 			return 0;
 		}
 
-		static int DoS3MEffectR(ushort tick, ushort flags, MP_CONTROL a, MODULE mod, short channel)
+		static int DoS3MEffectR(ushort tick, ushort flags, MP_CONTROL a, Module mod, short channel)
 		{
 			byte dat, q;
 			ushort temp = 0;	/* silence warning */
@@ -925,7 +925,7 @@ namespace SharpMik.Player
 			return 0;
 		}
 
-		static int DoS3MEffectT(ushort tick, ushort flags, MP_CONTROL a, MODULE mod, short channel)
+		static int DoS3MEffectT(ushort tick, ushort flags, MP_CONTROL a, Module mod, short channel)
 		{
 			byte tempo;
 
@@ -939,7 +939,7 @@ namespace SharpMik.Player
 			return 0;
 		}
 
-		static int DoS3MEffectU(ushort tick, ushort flags, MP_CONTROL a, MODULE mod, short channel)
+		static int DoS3MEffectU(ushort tick, ushort flags, MP_CONTROL a, Module mod, short channel)
 		{
 			byte dat, q;
 			ushort temp = 0;	/* silence warning */
@@ -990,7 +990,7 @@ namespace SharpMik.Player
 
 		/*========== Envelope helpers */
 
-		static int DoKeyOff(ushort tick, ushort flags, MP_CONTROL a, MODULE mod, short channel)
+		static int DoKeyOff(ushort tick, ushort flags, MP_CONTROL a, Module mod, short channel)
 		{
 			a.main.keyoff |= SharpMikCommon.KEY_OFF;
 			if ((!((a.main.volflg & SharpMikCommon.EF_ON) == SharpMikCommon.EF_ON)) || (a.main.volflg & SharpMikCommon.EF_LOOP) == SharpMikCommon.EF_LOOP)
@@ -999,7 +999,7 @@ namespace SharpMik.Player
 			return 0;
 		}
 
-		static int DoKeyFade(ushort tick, ushort flags, MP_CONTROL a, MODULE mod, short channel)
+		static int DoKeyFade(ushort tick, ushort flags, MP_CONTROL a, Module mod, short channel)
 		{
 			byte dat;
 
@@ -1018,7 +1018,7 @@ namespace SharpMik.Player
 
 		/* DoXMEffect6 after DoXMEffectA */
 
-		static int DoXMEffectA(ushort tick, ushort flags, MP_CONTROL a, MODULE mod, short channel)
+		static int DoXMEffectA(ushort tick, ushort flags, MP_CONTROL a, Module mod, short channel)
 		{
 			byte inf, lo, hi;
 
@@ -1048,7 +1048,7 @@ namespace SharpMik.Player
 			return 0;
 		}
 
-		static int DoXMEffect6(ushort tick, ushort flags, MP_CONTROL a, MODULE mod, short channel)
+		static int DoXMEffect6(ushort tick, ushort flags, MP_CONTROL a, Module mod, short channel)
 		{
 			if (a.main.period != 0)
 				DoVibrato(tick, a);
@@ -1056,7 +1056,7 @@ namespace SharpMik.Player
 			return DoXMEffectA(tick, flags, a, mod, channel);
 		}
 
-		static int DoXMEffectE1(ushort tick, ushort flags, MP_CONTROL a, MODULE mod, short channel)
+		static int DoXMEffectE1(ushort tick, ushort flags, MP_CONTROL a, Module mod, short channel)
 		{
 			byte dat;
 
@@ -1071,7 +1071,7 @@ namespace SharpMik.Player
 			return 0;
 		}
 
-		static int DoXMEffectE2(ushort tick, ushort flags, MP_CONTROL a, MODULE mod, short channel)
+		static int DoXMEffectE2(ushort tick, ushort flags, MP_CONTROL a, Module mod, short channel)
 		{
 			byte dat;
 
@@ -1086,7 +1086,7 @@ namespace SharpMik.Player
 			return 0;
 		}
 
-		static int DoXMEffectEA(ushort tick, ushort flags, MP_CONTROL a, MODULE mod, short channel)
+		static int DoXMEffectEA(ushort tick, ushort flags, MP_CONTROL a, Module mod, short channel)
 		{
 			byte dat;
 
@@ -1099,7 +1099,7 @@ namespace SharpMik.Player
 			return 0;
 		}
 
-		static int DoXMEffectEB(ushort tick, ushort flags, MP_CONTROL a, MODULE mod, short channel)
+		static int DoXMEffectEB(ushort tick, ushort flags, MP_CONTROL a, Module mod, short channel)
 		{
 			byte dat;
 
@@ -1112,7 +1112,7 @@ namespace SharpMik.Player
 			return 0;
 		}
 
-		static int DoXMEffectG(ushort tick, ushort flags, MP_CONTROL a, MODULE mod, short channel)
+		static int DoXMEffectG(ushort tick, ushort flags, MP_CONTROL a, Module mod, short channel)
 		{
 			mod.volume = (short)(s_UniTrack.UniGetByte() << 1);
 			if (mod.volume > 128) mod.volume = 128;
@@ -1120,7 +1120,7 @@ namespace SharpMik.Player
 			return 0;
 		}
 
-		static int DoXMEffectH(ushort tick, ushort flags, MP_CONTROL a, MODULE mod, short channel)
+		static int DoXMEffectH(ushort tick, ushort flags, MP_CONTROL a, Module mod, short channel)
 		{
 			byte inf;
 
@@ -1142,7 +1142,7 @@ namespace SharpMik.Player
 			return 0;
 		}
 
-		static int DoXMEffectL(ushort tick, ushort flags, MP_CONTROL a, MODULE mod, short channel)
+		static int DoXMEffectL(ushort tick, ushort flags, MP_CONTROL a, Module mod, short channel)
 		{
 			byte dat;
 
@@ -1171,7 +1171,7 @@ namespace SharpMik.Player
 			return 0;
 		}
 
-		static int DoXMEffectP(ushort tick, ushort flags, MP_CONTROL a, MODULE mod, short channel)
+		static int DoXMEffectP(ushort tick, ushort flags, MP_CONTROL a, Module mod, short channel)
 		{
 			byte inf, lo, hi;
 			short pan;
@@ -1201,7 +1201,7 @@ namespace SharpMik.Player
 			return 0;
 		}
 
-		static int DoXMEffectX1(ushort tick, ushort flags, MP_CONTROL a, MODULE mod, short channel)
+		static int DoXMEffectX1(ushort tick, ushort flags, MP_CONTROL a, Module mod, short channel)
 		{
 			byte dat;
 
@@ -1222,7 +1222,7 @@ namespace SharpMik.Player
 			return 0;
 		}
 
-		static int DoXMEffectX2(ushort tick, ushort flags, MP_CONTROL a, MODULE mod, short channel)
+		static int DoXMEffectX2(ushort tick, ushort flags, MP_CONTROL a, Module mod, short channel)
 		{
 			byte dat;
 
@@ -1292,7 +1292,7 @@ namespace SharpMik.Player
 			a.ownper = 1;
 		}
 
-		static int DoITEffectG(ushort tick, ushort flags, MP_CONTROL a, MODULE mod, short channel)
+		static int DoITEffectG(ushort tick, ushort flags, MP_CONTROL a, Module mod, short channel)
 		{
 			DoITToneSlide(tick, a, s_UniTrack.UniGetByte());
 
@@ -1345,14 +1345,14 @@ namespace SharpMik.Player
 			a.vibpos += (sbyte)a.vibspd;
 		}
 
-		static int DoITEffectH(ushort tick, ushort flags, MP_CONTROL a, MODULE mod, short channel)
+		static int DoITEffectH(ushort tick, ushort flags, MP_CONTROL a, Module mod, short channel)
 		{
 			DoITVibrato(tick, a, s_UniTrack.UniGetByte());
 
 			return 0;
 		}
 
-		static int DoITEffectI(ushort tick, ushort flags, MP_CONTROL a, MODULE mod, short channel)
+		static int DoITEffectI(ushort tick, ushort flags, MP_CONTROL a, Module mod, short channel)
 		{
 			byte inf, on, off;
 
@@ -1377,7 +1377,7 @@ namespace SharpMik.Player
 			return 0;
 		}
 
-		static int DoITEffectM(ushort tick, ushort flags, MP_CONTROL a, MODULE mod, short channel)
+		static int DoITEffectM(ushort tick, ushort flags, MP_CONTROL a, Module mod, short channel)
 		{
 			a.main.chanvol = (sbyte)s_UniTrack.UniGetByte();
 			if (a.main.chanvol > 64)
@@ -1388,7 +1388,7 @@ namespace SharpMik.Player
 			return 0;
 		}
 
-		static int DoITEffectN(ushort tick, ushort flags, MP_CONTROL a, MODULE mod, short channel)
+		static int DoITEffectN(ushort tick, ushort flags, MP_CONTROL a, Module mod, short channel)
 		{
 			byte inf, lo, hi;
 
@@ -1428,7 +1428,7 @@ namespace SharpMik.Player
 			return 0;
 		}
 
-		static int DoITEffectP(ushort tick, ushort flags, MP_CONTROL a, MODULE mod, short channel)
+		static int DoITEffectP(ushort tick, ushort flags, MP_CONTROL a, Module mod, short channel)
 		{
 			byte inf, lo, hi;
 			short pan;
@@ -1469,7 +1469,7 @@ namespace SharpMik.Player
 			return 0;
 		}
 
-		static int DoITEffectT(ushort tick, ushort flags, MP_CONTROL a, MODULE mod, short channel)
+		static int DoITEffectT(ushort tick, ushort flags, MP_CONTROL a, Module mod, short channel)
 		{
 			byte tempo;
 			short temp;
@@ -1490,7 +1490,7 @@ namespace SharpMik.Player
 			return 0;
 		}
 
-		static int DoITEffectU(ushort tick, ushort flags, MP_CONTROL a, MODULE mod, short channel)
+		static int DoITEffectU(ushort tick, ushort flags, MP_CONTROL a, Module mod, short channel)
 		{
 			byte dat, q;
 			ushort temp = 0;	/* silence warning */
@@ -1538,7 +1538,7 @@ namespace SharpMik.Player
 			return 0;
 		}
 
-		static int DoITEffectW(ushort tick, ushort flags, MP_CONTROL a, MODULE mod, short channel)
+		static int DoITEffectW(ushort tick, ushort flags, MP_CONTROL a, Module mod, short channel)
 		{
 			byte inf, lo, hi;
 
@@ -1580,7 +1580,7 @@ namespace SharpMik.Player
 			return 0;
 		}
 
-		static int DoITEffectY(ushort tick, ushort flags, MP_CONTROL a, MODULE mod, short channel)
+		static int DoITEffectY(ushort tick, ushort flags, MP_CONTROL a, Module mod, short channel)
 		{
 			byte dat, q;
 			int temp = 0;	/* silence warning */
@@ -1626,7 +1626,7 @@ namespace SharpMik.Player
 
 		/* Impulse/Scream Tracker Sxx effects.
 		   All Sxx effects share the same memory space. */
-		static int DoITEffectS0(ushort tick, ushort flags, MP_CONTROL a, MODULE mod, short channel)
+		static int DoITEffectS0(ushort tick, ushort flags, MP_CONTROL a, Module mod, short channel)
 		{
 			byte dat, inf, c;
 
@@ -1733,7 +1733,7 @@ namespace SharpMik.Player
 		 * All volume/pan column effects share the same memory space.
 		 */
 
-		static int DoVolEffects(ushort tick, ushort flags, MP_CONTROL a, MODULE mod, short channel)
+		static int DoVolEffects(ushort tick, ushort flags, MP_CONTROL a, Module mod, short channel)
 		{
 			byte c, inf;
 
@@ -1787,7 +1787,7 @@ namespace SharpMik.Player
 
 		/*========== UltraTracker effects */
 
-		static int DoULTEffect9(ushort tick, ushort flags, MP_CONTROL a, MODULE mod, short channel)
+		static int DoULTEffect9(ushort tick, ushort flags, MP_CONTROL a, Module mod, short channel)
 		{
 			ushort offset = s_UniTrack.UniGetWord();
 
@@ -1806,7 +1806,7 @@ namespace SharpMik.Player
 
 		/*========== OctaMED effects */
 
-		static int DoMEDSpeed(ushort tick, ushort flags, MP_CONTROL a, MODULE mod, short channel)
+		static int DoMEDSpeed(ushort tick, ushort flags, MP_CONTROL a, Module mod, short channel)
 		{
 			ushort speed = s_UniTrack.UniGetWord();
 
@@ -1815,21 +1815,21 @@ namespace SharpMik.Player
 			return 0;
 		}
 
-		static int DoMEDEffectF1(ushort tick, ushort flags, MP_CONTROL a, MODULE mod, short channel)
+		static int DoMEDEffectF1(ushort tick, ushort flags, MP_CONTROL a, Module mod, short channel)
 		{
 			DoEEffects(tick, flags, a, mod, channel, (byte)(0x90 | (mod.sngspd / 2)));
 
 			return 0;
 		}
 
-		static int DoMEDEffectF2(ushort tick, ushort flags, MP_CONTROL a, MODULE mod, short channel)
+		static int DoMEDEffectF2(ushort tick, ushort flags, MP_CONTROL a, Module mod, short channel)
 		{
 			DoEEffects(tick, flags, a, mod, channel, (byte)(0xd0 | (mod.sngspd / 2)));
 
 			return 0;
 		}
 
-		static int DoMEDEffectF3(ushort tick, ushort flags, MP_CONTROL a, MODULE mod, short channel)
+		static int DoMEDEffectF3(ushort tick, ushort flags, MP_CONTROL a, Module mod, short channel)
 		{
 			DoEEffects(tick, flags, a, mod, channel, (byte)(0x90 | (mod.sngspd / 3)));
 
@@ -1838,7 +1838,7 @@ namespace SharpMik.Player
 
 		/*========== Oktalyzer effects */
 
-		static int DoOktArp(ushort tick, ushort flags, MP_CONTROL a, MODULE mod, short channel)
+		static int DoOktArp(ushort tick, ushort flags, MP_CONTROL a, Module mod, short channel)
 		{
 			byte dat, dat2;
 
@@ -1857,7 +1857,7 @@ namespace SharpMik.Player
 			return 0;
 		}
 
-		static int DoNothing(ushort tick, ushort flags, MP_CONTROL a, MODULE mod, short channel)
+		static int DoNothing(ushort tick, ushort flags, MP_CONTROL a, Module mod, short channel)
 		{
 			s_UniTrack.UniSkipOpcode();
 
@@ -1865,7 +1865,7 @@ namespace SharpMik.Player
 		}
 
 
-		internal static void DoNNAEffects(MODULE mod, MP_CONTROL a, byte dat)
+		internal static void DoNNAEffects(Module mod, MP_CONTROL a, byte dat)
 		{
 			int t;
 			MP_VOICE aout;
@@ -2002,7 +2002,7 @@ namespace SharpMik.Player
 			DoOktArp,		/* UNI_OKTARP */
 		};
 
-		internal static int pt_playeffects(MODULE mod, short channel, MP_CONTROL a)
+		internal static int pt_playeffects(Module mod, short channel, MP_CONTROL a)
 		{
 			ushort tick = mod.vbtick;
 			ushort flags = mod.flags;
