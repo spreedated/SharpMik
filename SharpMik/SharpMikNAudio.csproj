@@ -8,11 +8,18 @@
     <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
     <SignAssembly>True</SignAssembly>
     <AssemblyOriginatorKeyFile>smna.snk</AssemblyOriginatorKeyFile>
+    <Copyright>Copyright © 2024</Copyright>
+    <AssemblyVersion>1.0.1</AssemblyVersion>
+    <FileVersion>1.0.1</FileVersion>
+    <Version>1.0.1</Version>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <GeneratePackageOnBuild Condition=" '$(Configuration)' == 'Release'">true</GeneratePackageOnBuild>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="NAudio" Version="2.2.1" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="../README.md" Pack="true" PackagePath="\" />
     <Compile Remove="Drivers\XNADriver.cs" />
     <Compile Remove="Player\effects.cs" />
   </ItemGroup>
